@@ -29,7 +29,9 @@ function FilmItem(props) {
       <h2>{props.filmTitle}</h2>
       <p>{props.myObject.filmDescription}</p>
       <Link to={newNav}>View More</Link>
-      <button onClick={toggleFavHandler}>{itemIsFav ? "Remove" : "Add"}</button>
+      <button onClick={toggleFavHandler}>
+        {itemIsFav ? "Remove from Favourites" : "Save to Favourites"}
+      </button>
     </div>
   );
 }

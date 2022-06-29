@@ -1,4 +1,5 @@
 import MainNav from "../components/MainNav";
+import DeleteFilm from "../components/DeleteFilm";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -43,6 +44,7 @@ function OneFilmPage() {
       <p>{new Date(loadedFilms.releaseDate).toDateString()}</p>
       {/* <p>{format(loadedFilms.releaseDate, "dd/mm/yyyy")}</p> */}
       <Link to={newNav}>Edit</Link>
+      <DeleteFilm filmID={loadedFilms.filmID}></DeleteFilm>
     </div>
   );
 }
