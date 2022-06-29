@@ -28,6 +28,12 @@ function FilmItem(props) {
     <div>
       <h2>{props.filmTitle}</h2>
       <p>{props.myObject.filmDescription}</p>
+      <div>
+        <img
+          src={"./images/" + props.myObject.filmImage}
+          alt={props.myObject.filmTitle}
+        ></img>
+      </div>
       <Link to={newNav}>View More</Link>
       <button onClick={toggleFavHandler}>
         {itemIsFav ? "Remove from Favourites" : "Save to Favourites"}

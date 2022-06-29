@@ -1,8 +1,9 @@
 import AddFilm from "../components/AddFilm";
-import FilmList from "../components/FilmList";
+import CMSFilmList from "../components/CMSFilmList";
 import MainNav from "../components/MainNav";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import useAuth from "../hooks/useAuth";
 
 // const data = [
 //   {
@@ -29,15 +30,19 @@ import { useEffect, useState } from "react";
 //   },
 // ];
 
-function AllFilmsPage() {
+function CMSFilms() {
   const navigate = useNavigate();
   const api = "https://mustbebuilt.co.uk/SHU/films-api/api.php";
   const [isLoading, setIsLoading] = useState(false);
   const [loadedFilms, setLoadedFilms] = useState([]);
-
+  const isAuth = useAuth();
+  console.dir(isAuth);
   // the array second parameter controls how freqeuently this runs
   // empty array will run once
   useEffect(() => {
+    if (isAuth.auth === false) {
+      navigate("/login");
+    }
     setIsLoading(true);
     fetch(api)
       .then((response) => {
@@ -53,13 +58,30 @@ function AllFilmsPage() {
     }
   }, []);
 
+  function addFilmHander(data) {
+    console.dir(data);
+
+    const dataFeed = JSON.stringify(data);
+    fetch(api, {
+      method: "POST",
+      mode: "cors",
+      body: dataFeed,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      navigate("/cms");
+    });
+  }
+
   return (
     <div>
       <MainNav></MainNav>
       <h1>All Films React</h1>
-      <FilmList data={loadedFilms} />
+      <AddFilm onAddFilm={addFilmHander}></AddFilm>
+      <CMSFilmList data={loadedFilms} />
     </div>
   );
 }
 
-export default AllFilmsPage;
+export default CMSFilms;

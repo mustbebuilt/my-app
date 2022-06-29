@@ -1,4 +1,3 @@
-import { parseWithOptions } from "date-fns/fp";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function DeleteFilm(props) {
@@ -20,7 +19,7 @@ function DeleteFilm(props) {
       .then((response) => response.status)
       .then((status) => {
         if (status === 202 || status === 200) {
-          navigate("/");
+          navigate("/cms");
         }
       });
   };
