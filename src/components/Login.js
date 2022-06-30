@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import MainNav from "./MainNav";
 function Login() {
   const navigate = useNavigate();
   const { setAuth } = useAuth();
@@ -13,7 +12,7 @@ function Login() {
       loginInputRef.current.value === "admin" &&
       pwInputRef.current.value === "letmein"
     ) {
-      setAuth(true);
+      setAuth({ user: loginInputRef.current.value });
       navigate("/cms");
     }
   };
@@ -21,7 +20,6 @@ function Login() {
   const pwInputRef = useRef();
   return (
     <div>
-      <MainNav></MainNav>
       <form>
         <div>
           <label>Login</label>

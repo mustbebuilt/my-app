@@ -1,7 +1,7 @@
-import MainNav from "../components/MainNav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function EditFilmPage() {
   const { id } = useParams();
@@ -77,7 +77,6 @@ function EditFilmPage() {
 
   return (
     <div>
-      <MainNav></MainNav>
       <form>
         <div>
           <label>Film Title</label>

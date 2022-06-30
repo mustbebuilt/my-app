@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CMSFilmItem(props) {
   let id = props.myObject.filmID;
 
-  const newNav = `/cmsmone/${props.myObject.filmID}`;
+  const newNav = `/cmsone/${props.myObject.filmID}`;
   return (
     <div>
       <h2>{props.filmTitle}</h2>

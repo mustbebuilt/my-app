@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import FavoritesContext from "../store/favorites-context";
 import FilmList from "../components/FilmList";
-import MainNav from "../components/MainNav";
 
 function FavoritesPage() {
   const favCtx = useContext(FavoritesContext);
@@ -15,7 +14,6 @@ function FavoritesPage() {
   }
   return (
     <div>
-      <MainNav></MainNav>
       <h2>My Favs</h2>
       {content}
     </div>

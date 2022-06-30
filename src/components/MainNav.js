@@ -8,14 +8,13 @@ import classes from "./MainNav.module.css";
 function MainNav() {
   const favCtx = useContext(FavoritesContext);
   const numFavs = favCtx.totalFavorites;
-  const { setAuth } = useAuth();
-  const isAuth = useAuth();
-  console.info(isAuth);
+  const { auth, setAuth } = useAuth();
+  console.dir(auth);
   const navigate = useNavigate();
   const logout = async () => {
     // if used in more components, this should be in context
     // axios to /logout endpoint
-    setAuth(false);
+    setAuth({});
     navigate("/");
   };
 
@@ -38,9 +37,9 @@ function MainNav() {
           <Link to='/demolist'>Demos</Link>
         </li>
         <li>
-          {isAuth.auth && (
+          {auth.user && (
             <a href='#' onClick={logout}>
-              Log Out
+              Log Out ({auth.user})
             </a>
           )}
         </li>

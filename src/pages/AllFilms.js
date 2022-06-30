@@ -1,6 +1,5 @@
 import AddFilm from "../components/AddFilm";
 import FilmList from "../components/FilmList";
-import MainNav from "../components/MainNav";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -55,7 +54,6 @@ function AllFilmsPage() {
 
   return (
     <div>
-      <MainNav></MainNav>
       <h1>All Films React</h1>
       <FilmList data={loadedFilms} />
     </div>

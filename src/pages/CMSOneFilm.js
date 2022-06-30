@@ -1,4 +1,3 @@
-import MainNav from "../components/MainNav";
 import DeleteFilm from "../components/DeleteFilm";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,7 +32,6 @@ function CMSOneFilm() {
 
   return (
     <div>
-      <MainNav></MainNav>
       <h1>{loadedFilms.filmTitle}</h1>
       <p>{loadedFilms.filmCertificate}</p>
       <p>{loadedFilms.filmDescription}</p>

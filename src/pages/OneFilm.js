@@ -1,4 +1,3 @@
-import MainNav from "../components/MainNav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -25,11 +24,10 @@ function OneFilmPage() {
     if (isLoading) {
       return <div>Loading</div>;
     }
-  }, [api, isLoading]);
+  }, []);
 
   return (
     <div>
-      <MainNav></MainNav>
       <h1>{loadedFilms.filmTitle}</h1>
       <img
         src={"/images/" + loadedFilms.filmImage}
