@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function EditFilmPage() {
   const { id } = useParams();
   console.info(id);
-  const api = "https://mustbebuilt.co.uk/SHU/films-api/api.php?filmID=" + id;
+  const api = "http://localhost:3001/api/film/" + id;
   const [isLoading, setIsLoading] = useState(false);
   const [loadedFilms, setLoadedFilms] = useState({});
   const [hasUpdated, setUpdate] = useState(false);
@@ -136,7 +136,7 @@ function EditFilmPage() {
         <div>
           <input
             type='hidden'
-            defaultValue={loadedFilms.filmID}
+            defaultValue={loadedFilms._id}
             ref={filmIDInputRef}
           />
           <button onClick={editOnClick}>Update</button>

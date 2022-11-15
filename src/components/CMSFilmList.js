@@ -5,7 +5,7 @@ function CMSFilmList(props) {
     <ul>
       {props.data.map((film) => (
         <CMSFilmItem
-          key={film.filmID}
+          key={film._id}
           filmTitle={film.filmTitle}
           myObject={film}
         ></CMSFilmItem>

@@ -10,8 +10,7 @@ function DeleteFilm(props) {
   };
   const yesDelete = () => {
     console.info("kill film" + props.filmID);
-    const api =
-      "https://mustbebuilt.co.uk/SHU/films-api/api.php?filmID=" + props.filmID;
+    const api = "http://localhost:3001/api/film/" + props.filmID;
     fetch(api, {
       method: "DELETE",
       mode: "cors",

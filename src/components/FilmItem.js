@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 function FilmItem(props) {
   const favCtx = useContext(FavoritesContext);
 
-  let id = props.myObject.filmID;
-  //console.info(id);
+  let id = props.myObject._id;
+  console.info(id);
   //console.dir(favCtx);
   const itemIsFav = favCtx.itemFav(id);
   console.dir(itemIsFav);
@@ -23,7 +23,7 @@ function FilmItem(props) {
   //       navigate("/");
   // }
 
-  const newNav = `/one/${props.myObject.filmID}`;
+  const newNav = `/one/${props.myObject._id}`;
   return (
     <div>
       <h2>{props.filmTitle}</h2>

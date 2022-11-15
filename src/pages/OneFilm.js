@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 function OneFilmPage() {
   const { id } = useParams();
   console.info(id);
-  const api = "https://mustbebuilt.co.uk/SHU/films-api/api.php?filmID=" + id;
+  const api = "http://localhost:3001/api/film/" + id;
   const [isLoading, setIsLoading] = useState(false);
   const [loadedFilms, setLoadedFilms] = useState([]);
 

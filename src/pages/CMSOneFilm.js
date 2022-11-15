@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 function CMSOneFilm() {
   const { id } = useParams();
   console.info(id);
-  const api = "https://mustbebuilt.co.uk/SHU/films-api/api.php?filmID=" + id;
+  const api = "http://localhost:3001/api/film/" + id;
   const [isLoading, setIsLoading] = useState(false);
   const [loadedFilms, setLoadedFilms] = useState([]);
 
-  const newNav = `/edit/${loadedFilms.filmID}`;
+  const newNav = `/edit/${loadedFilms._id}`;
 
   // the array second parameter controls how freqeuently this runs
   // empty array will run once
@@ -42,7 +42,7 @@ function CMSOneFilm() {
       <p>{new Date(loadedFilms.releaseDate).toDateString()}</p>
       {/* <p>{format(loadedFilms.releaseDate, "dd/mm/yyyy")}</p> */}
       <Link to={newNav}>Edit</Link>
-      <DeleteFilm filmID={loadedFilms.filmID}></DeleteFilm>
+      <DeleteFilm filmID={loadedFilms._id}></DeleteFilm>
     </div>
   );
 }

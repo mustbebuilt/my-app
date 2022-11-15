@@ -7,3 +7,6 @@ body{
 .modal{
   background-color: #ffcc00;
 }
+label{
+  display:block;
+}

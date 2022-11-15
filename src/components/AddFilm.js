@@ -1,6 +1,8 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddFilm(props) {
+  const navigate = useNavigate();
   const titleInputRef = useRef();
   const certInputRef = useRef();
   const descInputRef = useRef();
@@ -30,6 +32,23 @@ function AddFilm(props) {
     };
 
     console.dir(newFilm);
+    //
+    const api = "http://localhost:3001/api/film/";
+    var sendStr = JSON.stringify(newFilm);
+    fetch(api, {
+      method: "POST",
+      body: sendStr,
+      mode: "cors",
+    })
+      .then((response) => response.status)
+      .then((status) => {
+        console.info(status);
+        if (status === 202 || status === 200) {
+          navigate("/");
+        }
+      });
+
+    //
     props.onAddFilm(newFilm);
   }
 
